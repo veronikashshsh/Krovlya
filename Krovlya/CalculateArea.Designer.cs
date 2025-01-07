@@ -1,6 +1,6 @@
 ﻿namespace Krovlya
 {
-    partial class Form2
+    partial class CalculateArea
     {
         /// <summary>
         /// Required designer variable.
@@ -34,6 +34,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.WidthInput = new System.Windows.Forms.TextBox();
+            this.resultArea = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -92,12 +95,45 @@
             this.WidthInput.Size = new System.Drawing.Size(242, 26);
             this.WidthInput.TabIndex = 4;
             // 
+            // resultArea
+            // 
+            this.resultArea.AutoSize = true;
+            this.resultArea.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.resultArea.Location = new System.Drawing.Point(837, 198);
+            this.resultArea.Name = "resultArea";
+            this.resultArea.Size = new System.Drawing.Size(23, 32);
+            this.resultArea.TabIndex = 6;
+            this.resultArea.Text = "/";
+            this.resultArea.Click += new System.EventHandler(this.label4_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(40, 694);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(148, 50);
+            this.button2.TabIndex = 7;
+            this.button2.Text = "Назад";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(1287, 694);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(148, 50);
+            this.button3.TabIndex = 8;
+            this.button3.Text = "Далі";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
+            this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(1478, 776);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.resultArea);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.WidthInput);
             this.Controls.Add(this.label2);
@@ -119,5 +155,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox WidthInput;
+        private System.Windows.Forms.Label resultArea;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
     }
 }
