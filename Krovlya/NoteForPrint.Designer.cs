@@ -37,6 +37,9 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.labelData = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -61,7 +64,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(23, 137);
+            this.label3.Location = new System.Drawing.Point(12, 263);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(89, 20);
             this.label3.TabIndex = 2;
@@ -70,7 +73,7 @@
             // MaterialsLabel
             // 
             this.MaterialsLabel.AutoSize = true;
-            this.MaterialsLabel.Location = new System.Drawing.Point(165, 137);
+            this.MaterialsLabel.Location = new System.Drawing.Point(117, 263);
             this.MaterialsLabel.Name = "MaterialsLabel";
             this.MaterialsLabel.Size = new System.Drawing.Size(13, 20);
             this.MaterialsLabel.TabIndex = 5;
@@ -123,11 +126,42 @@
             this.button3.Text = "Зберегти";
             this.button3.UseVisualStyleBackColor = true;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.Location = new System.Drawing.Point(459, 214);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(173, 29);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Специфікація";
+            // 
+            // labelData
+            // 
+            this.labelData.AutoSize = true;
+            this.labelData.Location = new System.Drawing.Point(700, 63);
+            this.labelData.Name = "labelData";
+            this.labelData.Size = new System.Drawing.Size(13, 20);
+            this.labelData.TabIndex = 11;
+            this.labelData.Text = "/";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(624, 63);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(48, 20);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "Дата";
+            // 
             // NoteForPrint
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1360, 792);
+            this.Controls.Add(this.labelData);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -155,5 +189,8 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label labelData;
+        private System.Windows.Forms.Label label6;
     }
 }

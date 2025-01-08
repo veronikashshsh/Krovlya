@@ -46,6 +46,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChooseTypeOfRoof.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChooseTypeOfRoof.Designer.cs">
+      <DependentUpon>ChooseTypeOfRoof.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AmountOfRoof.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AmountOfRoof.Designer.cs">
+      <DependentUpon>AmountOfRoof.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MetalRoofData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MetalRoofData.Designer.cs">
+      <DependentUpon>MetalRoofData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MetalCalculat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MetalCalculat.Designer.cs">
+      <DependentUpon>MetalCalculat.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,11 +96,23 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ChooseTypeOfRoof.resx">
+      <DependentUpon>ChooseTypeOfRoof.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AmountOfRoof.resx">
+      <DependentUpon>AmountOfRoof.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MetalRoofData.resx">
+      <DependentUpon>MetalRoofData.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainPage.resx">
       <DependentUpon>MainPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CalculateArea.resx">
       <DependentUpon>CalculateArea.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MetalCalculat.resx">
+      <DependentUpon>MetalCalculat.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MetalTile.resx">
       <DependentUpon>MetalTile.cs</DependentUpon>
