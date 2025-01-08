@@ -20,32 +20,25 @@ namespace Krovlya
             
         }
 
+
         private void button1_Click(object sender, EventArgs e)
         {
-            // Створюємо екземпляр форми MetalTile
+
             MetalTile form3 = new MetalTile();
+            AmountOfRoof formAmount = new AmountOfRoof();
 
-            // Створюємо словник із текстами для оновлення
-            var textUpdates = new Dictionary<string, string>
-    {
-       { "labelData", textBoxData.Text },         // Значення з textBoxData -> labelData
-        { "labelCustomer", textBoxCustomer.Text }, // Значення з textBoxCustomer -> labelCustomer
-        { "labelManager", textBoxManager.Text },
-        { "label22", textBox1.Text }
-    };
+            // Зберігаємо дані у статичний клас
+            GlobalData.LabelData = textBoxData.Text;
+            GlobalData.LabelCustomer = textBoxCustomer.Text;
+            GlobalData.LabelManager = textBoxManager.Text;
+            GlobalData.LabelOrder = textBoxOrder.Text;
 
-            // Викликаємо метод для оновлення текстів на формі MetalTile
-            form3.UpdateLabels(textUpdates);
-
-            // Відкриваємо форму MetalTile
-            form3.Show();
+            // Відкриваємо форму AmountOfRoof
+            formAmount.Show();
 
             // Ховаємо поточну форму
             this.Hide();
         }
-
-
-
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -100,6 +93,11 @@ namespace Krovlya
         }
 
         private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged_1(object sender, EventArgs e)
         {
 
         }

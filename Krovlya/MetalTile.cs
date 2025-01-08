@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Krovlya.MainPage;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Krovlya
@@ -17,19 +18,20 @@ namespace Krovlya
         {
             InitializeComponent();
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            this.Load += new EventHandler(MetalTile_Load);
         }
 
-        public void UpdateLabels(Dictionary<string, string> textUpdates)
+        public void UpdateLabels()
         {
-            foreach (var item in textUpdates)
-            {
-                // Шукаємо елемент на формі за його назвою
-                var control = this.Controls[item.Key];
-                if (control != null && control is Label) // Перевірка, що це Label
-                {
-                    control.Text = item.Value; // Оновлюємо текст
-                }
-            }
+            labelData.Text = GlobalData.LabelData;
+            labelCustomer.Text = GlobalData.LabelCustomer;
+            labelManager.Text = GlobalData.LabelManager;
+            labelOrder.Text = GlobalData.LabelOrder;
+        }
+
+        private void MetalTile_Load(object sender, EventArgs e)
+        {
+            UpdateLabels();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -41,26 +43,22 @@ namespace Krovlya
 
         private void buttonNext_Click(object sender, EventArgs e)
         {
-            MetalCalculat formMetal = new MetalCalculat();
+            NoteForPrint formPrint = new NoteForPrint();
 
-            double UsefulWidthValue = double.TryParse(textBoxUseWidthList.Text, out double data) ? data : 0; // Парсинг тексту в число
-            double FullWidthValue = double.TryParse(textBoxFullWidth.Text, out double customer) ? customer : 0;
-            double MaxLengthValue = double.TryParse(textBoxMaxLength.Text, out double manager) ? manager : 0;
-            double WidthRoofValue = double.TryParse(textBoxWidthRoof.Text, out double managers) ? managers : 0;
+            GlobalData.NameOfMetalTile = textBoxGood.Text;
+            GlobalData.MaxLengthZavodMetal = textBoxMaxLength.Text;
+            GlobalData.DiskretOfMetal = textBoxDiscret.Text;
+            DataCalculations.UsefulWidthValue = double.TryParse(textBoxUseWidthList.Text, out double data) ? data : 0; // Парсинг тексту в число
+            DataCalculations.FullWidthValue = double.TryParse(textBoxFullWidth.Text, out double customer) ? customer : 0;
+            DataCalculations.MaxLengthValue = double.TryParse(textBoxMaxLength.Text, out double manager) ? manager : 0;
+            DataCalculations.WidthRoofValue = double.TryParse(textBoxWidthRoof.Text, out double managers) ? managers : 0;
+            DataCalculations.ListLength = double.TryParse(textBoxLengthList.Text, out double length) ? length : 0;
 
-            double resultMetalList = WidthRoofValue/UsefulWidthValue;                     // Наприклад, помножити на 2
-            double AreaOfRoof = resultMetalList;
+            DataCalculations.ResultMetalList = DataCalculations.WidthRoofValue / DataCalculations.UsefulWidthValue;                     
+            DataCalculations.AreaOfRoof = DataCalculations.ResultMetalList * DataCalculations.ListLength * DataCalculations.FullWidthValue;
 
-            var textUpdates = new Dictionary<string, string>
-           {
-                { "labelAmountMetal", resultMetalList.ToString("F0") },         // Значення з textBoxData -> labelData
-                { "labelGood", textBoxGood.Text }
-           };
-
-            formMetal.UpdateLabels(textUpdates);
-
-            formMetal.Show();
-            this.Close();
+            formPrint.Show();
+            this.Hide();
         }
 
 
@@ -121,6 +119,11 @@ namespace Krovlya
         }
 
         private void label20_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }

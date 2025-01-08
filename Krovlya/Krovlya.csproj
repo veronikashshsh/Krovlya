@@ -58,17 +58,12 @@
     <Compile Include="AmountOfRoof.Designer.cs">
       <DependentUpon>AmountOfRoof.cs</DependentUpon>
     </Compile>
+    <Compile Include="GlobalData.cs" />
     <Compile Include="MetalRoofData.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MetalRoofData.Designer.cs">
       <DependentUpon>MetalRoofData.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MetalCalculat.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MetalCalculat.Designer.cs">
-      <DependentUpon>MetalCalculat.cs</DependentUpon>
     </Compile>
     <Compile Include="MainPage.cs">
       <SubType>Form</SubType>
@@ -110,9 +105,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CalculateArea.resx">
       <DependentUpon>CalculateArea.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MetalCalculat.resx">
-      <DependentUpon>MetalCalculat.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MetalTile.resx">
       <DependentUpon>MetalTile.cs</DependentUpon>

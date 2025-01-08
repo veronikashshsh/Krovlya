@@ -26,5 +26,12 @@ namespace Krovlya
         {
 
         }
+
+        private void buttonNext_Click(object sender, EventArgs e)
+        {
+            MetalTile metalTile = new MetalTile();
+            metalTile.Show();
+            this.Hide();
+        }
     }
 }

@@ -226,6 +226,7 @@
             this.button1.TabIndex = 18;
             this.button1.Text = "Далі";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 

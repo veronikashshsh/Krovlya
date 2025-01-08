@@ -39,7 +39,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.AreaCalculate = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxOrder = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -156,13 +156,14 @@
             this.AreaCalculate.UseVisualStyleBackColor = true;
             this.AreaCalculate.Click += new System.EventHandler(this.button4_Click);
             // 
-            // textBox1
+            // textBoxOrder
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox1.Location = new System.Drawing.Point(192, 154);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(163, 30);
-            this.textBox1.TabIndex = 15;
+            this.textBoxOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxOrder.Location = new System.Drawing.Point(192, 154);
+            this.textBoxOrder.Name = "textBoxOrder";
+            this.textBoxOrder.Size = new System.Drawing.Size(163, 30);
+            this.textBoxOrder.TabIndex = 15;
+            this.textBoxOrder.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
             // 
             // label3
             // 
@@ -181,7 +182,7 @@
             this.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.ClientSize = new System.Drawing.Size(1480, 779);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxOrder);
             this.Controls.Add(this.AreaCalculate);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -215,7 +216,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button AreaCalculate;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxOrder;
         private System.Windows.Forms.Label label3;
     }
 }

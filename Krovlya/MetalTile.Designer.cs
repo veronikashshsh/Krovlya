@@ -54,7 +54,7 @@
             this.textBox12 = new System.Windows.Forms.TextBox();
             this.textBoxMaxLength = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.textBox14 = new System.Windows.Forms.TextBox();
+            this.textBoxDiscret = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.textBox15 = new System.Windows.Forms.TextBox();
             this.textBox16 = new System.Windows.Forms.TextBox();
@@ -66,7 +66,7 @@
             this.label18 = new System.Windows.Forms.Label();
             this.textBox19 = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
+            this.labelOrder = new System.Windows.Forms.Label();
             this.labelData = new System.Windows.Forms.Label();
             this.labelCustomer = new System.Windows.Forms.Label();
             this.labelManager = new System.Windows.Forms.Label();
@@ -74,6 +74,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.buttonMetalData = new System.Windows.Forms.Button();
             this.label20 = new System.Windows.Forms.Label();
+            this.textBoxLengthList = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -86,6 +88,7 @@
             this.label1.Size = new System.Drawing.Size(129, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Замовлення";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -222,7 +225,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label10.Location = new System.Drawing.Point(63, 516);
+            this.label10.Location = new System.Drawing.Point(636, 460);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(250, 25);
             this.label10.TabIndex = 20;
@@ -232,7 +235,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label11.Location = new System.Drawing.Point(83, 556);
+            this.label11.Location = new System.Drawing.Point(662, 502);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(230, 25);
             this.label11.TabIndex = 21;
@@ -242,7 +245,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label12.Location = new System.Drawing.Point(135, 596);
+            this.label12.Location = new System.Drawing.Point(135, 502);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(178, 25);
             this.label12.TabIndex = 22;
@@ -271,21 +274,21 @@
             // 
             // textBoxUseWidthList
             // 
-            this.textBoxUseWidthList.Location = new System.Drawing.Point(328, 515);
+            this.textBoxUseWidthList.Location = new System.Drawing.Point(907, 460);
             this.textBoxUseWidthList.Name = "textBoxUseWidthList";
             this.textBoxUseWidthList.Size = new System.Drawing.Size(61, 26);
             this.textBoxUseWidthList.TabIndex = 26;
             // 
             // textBoxFullWidth
             // 
-            this.textBoxFullWidth.Location = new System.Drawing.Point(328, 557);
+            this.textBoxFullWidth.Location = new System.Drawing.Point(907, 503);
             this.textBoxFullWidth.Name = "textBoxFullWidth";
             this.textBoxFullWidth.Size = new System.Drawing.Size(61, 26);
             this.textBoxFullWidth.TabIndex = 27;
             // 
             // textBox12
             // 
-            this.textBox12.Location = new System.Drawing.Point(328, 597);
+            this.textBox12.Location = new System.Drawing.Point(328, 503);
             this.textBox12.Name = "textBox12";
             this.textBox12.Size = new System.Drawing.Size(61, 26);
             this.textBox12.TabIndex = 28;
@@ -309,12 +312,12 @@
             this.label13.Text = "Максимальна довжина заводского листка, м:";
             this.label13.Click += new System.EventHandler(this.label13_Click);
             // 
-            // textBox14
+            // textBoxDiscret
             // 
-            this.textBox14.Location = new System.Drawing.Point(909, 359);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(61, 26);
-            this.textBox14.TabIndex = 32;
+            this.textBoxDiscret.Location = new System.Drawing.Point(909, 359);
+            this.textBoxDiscret.Name = "textBoxDiscret";
+            this.textBoxDiscret.Size = new System.Drawing.Size(61, 26);
+            this.textBoxDiscret.TabIndex = 32;
             // 
             // label14
             // 
@@ -407,15 +410,15 @@
             this.label19.TabIndex = 41;
             this.label19.Text = "Ціна за 1 погонний метр";
             // 
-            // label22
+            // labelOrder
             // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label22.Location = new System.Drawing.Point(260, 22);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(18, 25);
-            this.label22.TabIndex = 43;
-            this.label22.Text = "/";
+            this.labelOrder.AutoSize = true;
+            this.labelOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelOrder.Location = new System.Drawing.Point(260, 22);
+            this.labelOrder.Name = "labelOrder";
+            this.labelOrder.Size = new System.Drawing.Size(18, 25);
+            this.labelOrder.TabIndex = 43;
+            this.labelOrder.Text = "/";
             // 
             // labelData
             // 
@@ -449,7 +452,7 @@
             // 
             // textBoxWidthRoof
             // 
-            this.textBoxWidthRoof.Location = new System.Drawing.Point(909, 487);
+            this.textBoxWidthRoof.Location = new System.Drawing.Point(907, 419);
             this.textBoxWidthRoof.Name = "textBoxWidthRoof";
             this.textBoxWidthRoof.Size = new System.Drawing.Size(61, 26);
             this.textBoxWidthRoof.TabIndex = 48;
@@ -459,7 +462,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(656, 488);
+            this.label3.Location = new System.Drawing.Point(654, 420);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(232, 25);
             this.label3.TabIndex = 47;
@@ -489,12 +492,31 @@
             this.label20.Text = "4/4";
             this.label20.Click += new System.EventHandler(this.label20_Click);
             // 
+            // textBoxLengthList
+            // 
+            this.textBoxLengthList.Location = new System.Drawing.Point(907, 549);
+            this.textBoxLengthList.Name = "textBoxLengthList";
+            this.textBoxLengthList.Size = new System.Drawing.Size(61, 26);
+            this.textBoxLengthList.TabIndex = 52;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label21.Location = new System.Drawing.Point(698, 548);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(186, 25);
+            this.label21.TabIndex = 51;
+            this.label21.Text = "Довжина листа, м";
+            // 
             // MetalTile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(1373, 820);
+            this.Controls.Add(this.textBoxLengthList);
+            this.Controls.Add(this.label21);
             this.Controls.Add(this.label20);
             this.Controls.Add(this.buttonMetalData);
             this.Controls.Add(this.textBoxWidthRoof);
@@ -502,7 +524,7 @@
             this.Controls.Add(this.labelManager);
             this.Controls.Add(this.labelCustomer);
             this.Controls.Add(this.labelData);
-            this.Controls.Add(this.label22);
+            this.Controls.Add(this.labelOrder);
             this.Controls.Add(this.textBox19);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.textBox17);
@@ -513,7 +535,7 @@
             this.Controls.Add(this.textBox16);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label16);
-            this.Controls.Add(this.textBox14);
+            this.Controls.Add(this.textBoxDiscret);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.textBoxMaxLength);
             this.Controls.Add(this.label13);
@@ -576,7 +598,7 @@
         private System.Windows.Forms.TextBox textBox12;
         private System.Windows.Forms.TextBox textBoxMaxLength;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox14;
+        private System.Windows.Forms.TextBox textBoxDiscret;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox textBox15;
         private System.Windows.Forms.TextBox textBox16;
@@ -588,7 +610,7 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox textBox19;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label labelOrder;
         private System.Windows.Forms.Label labelData;
         private System.Windows.Forms.Label labelCustomer;
         private System.Windows.Forms.Label labelManager;
@@ -596,5 +618,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button buttonMetalData;
         private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TextBox textBoxLengthList;
+        private System.Windows.Forms.Label label21;
     }
 }

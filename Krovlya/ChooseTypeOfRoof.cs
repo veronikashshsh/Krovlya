@@ -22,5 +22,12 @@ namespace Krovlya
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MetalRoofData metalRoofData = new MetalRoofData();
+            metalRoofData.Show();
+            this.Hide();
+        }
     }
 }
