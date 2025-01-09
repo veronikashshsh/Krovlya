@@ -30,4 +30,13 @@ namespace Krovlya
         public static double ListLength { get; set; }
 
     }
+
+    internal static class selectedElement
+    {
+        public static string SelectComp { get; set;  }
+        /*public static double DataOfCompA { get; set;}
+        public static double DataOfCompB { get; set; }
+        public static double DataOfCompC { get; set; }
+        public static double DataOfCompD { get; set; }*/
+    }
 }
