@@ -15,7 +15,8 @@ namespace Krovlya
         public AmountOfRoof()
         {
             InitializeComponent();
-            
+            pictureBoxExamp.SizeMode = PictureBoxSizeMode.StretchImage;
+
         }
 
         private void buttonNextAm_Click(object sender, EventArgs e)
@@ -28,6 +29,11 @@ namespace Krovlya
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
 
         }
