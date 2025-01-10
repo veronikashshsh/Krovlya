@@ -143,6 +143,18 @@
     <Compile Include="AmountOfRoof.Designer.cs">
       <DependentUpon>AmountOfRoof.cs</DependentUpon>
     </Compile>
+    <Compile Include="InfoAllMetal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InfoAllMetal.Designer.cs">
+      <DependentUpon>InfoAllMetal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TypeOfCalc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TypeOfCalc.Designer.cs">
+      <DependentUpon>TypeOfCalc.cs</DependentUpon>
+    </Compile>
     <Compile Include="GlobalData.cs" />
     <Compile Include="MetalRoofData.cs">
       <SubType>Form</SubType>
@@ -168,11 +180,11 @@
     <Compile Include="MetalTile.Designer.cs">
       <DependentUpon>MetalTile.cs</DependentUpon>
     </Compile>
-    <Compile Include="NoteForPrint.cs">
+    <Compile Include="NoteAboutOneComp.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NoteForPrint.Designer.cs">
-      <DependentUpon>NoteForPrint.cs</DependentUpon>
+    <Compile Include="NoteAboutOneComp.Designer.cs">
+      <DependentUpon>NoteAboutOneComp.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -181,6 +193,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AmountOfRoof.resx">
       <DependentUpon>AmountOfRoof.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InfoAllMetal.resx">
+      <DependentUpon>InfoAllMetal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TypeOfCalc.resx">
+      <DependentUpon>TypeOfCalc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MetalRoofData.resx">
       <DependentUpon>MetalRoofData.cs</DependentUpon>
@@ -194,8 +212,8 @@
     <EmbeddedResource Include="MetalTile.resx">
       <DependentUpon>MetalTile.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NoteForPrint.resx">
-      <DependentUpon>NoteForPrint.cs</DependentUpon>
+    <EmbeddedResource Include="NoteAboutOneComp.resx">
+      <DependentUpon>NoteAboutOneComp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

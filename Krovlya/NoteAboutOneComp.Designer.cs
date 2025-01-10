@@ -1,6 +1,6 @@
 ﻿namespace Krovlya
 {
-    partial class NoteForPrint
+    partial class NoteAboutOneComp
     {
         /// <summary>
         /// Required designer variable.
@@ -37,7 +37,6 @@
             this.buttonBack = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
             this.labelData = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -55,6 +54,9 @@
             this.labelOrder = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.buttonNext = new System.Windows.Forms.Button();
+            this.labelCompOfRoof = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -82,7 +84,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(98, 263);
+            this.label3.Location = new System.Drawing.Point(125, 221);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(99, 22);
             this.label3.TabIndex = 2;
@@ -92,7 +94,7 @@
             // 
             this.MaterialsLabel.AutoSize = true;
             this.MaterialsLabel.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.MaterialsLabel.Location = new System.Drawing.Point(226, 263);
+            this.MaterialsLabel.Location = new System.Drawing.Point(253, 221);
             this.MaterialsLabel.Name = "MaterialsLabel";
             this.MaterialsLabel.Size = new System.Drawing.Size(16, 22);
             this.MaterialsLabel.TabIndex = 5;
@@ -121,17 +123,17 @@
             // 
             // buttonBack
             // 
-            this.buttonBack.Location = new System.Drawing.Point(1182, 12);
+            this.buttonBack.Location = new System.Drawing.Point(1126, 746);
             this.buttonBack.Name = "buttonBack";
-            this.buttonBack.Size = new System.Drawing.Size(133, 37);
+            this.buttonBack.Size = new System.Drawing.Size(100, 37);
             this.buttonBack.TabIndex = 6;
             this.buttonBack.Text = "Назад";
             this.buttonBack.UseVisualStyleBackColor = true;
-            this.buttonBack.Click += new System.EventHandler(this.button1_Click);
+            this.buttonBack.Click += new System.EventHandler(this.buttonNext_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(1182, 55);
+            this.button2.Location = new System.Drawing.Point(1196, 19);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(133, 37);
             this.button2.TabIndex = 7;
@@ -141,23 +143,13 @@
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(1182, 98);
+            this.buttonSave.Location = new System.Drawing.Point(1196, 62);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(133, 37);
             this.buttonSave.TabIndex = 8;
             this.buttonSave.Text = "Зберегти";
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Click += new System.EventHandler(this.ButtonSave_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(515, 162);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(166, 26);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Специфікація";
             // 
             // labelData
             // 
@@ -173,7 +165,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.Location = new System.Drawing.Point(378, 65);
+            this.label6.Location = new System.Drawing.Point(380, 62);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(59, 27);
             this.label6.TabIndex = 10;
@@ -183,7 +175,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(57, 309);
+            this.label5.Location = new System.Drawing.Point(84, 267);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(150, 22);
             this.label5.TabIndex = 12;
@@ -193,7 +185,7 @@
             // 
             this.AmountOfMetal.AutoSize = true;
             this.AmountOfMetal.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.AmountOfMetal.Location = new System.Drawing.Point(226, 309);
+            this.AmountOfMetal.Location = new System.Drawing.Point(253, 267);
             this.AmountOfMetal.Name = "AmountOfMetal";
             this.AmountOfMetal.Size = new System.Drawing.Size(16, 22);
             this.AmountOfMetal.TabIndex = 13;
@@ -203,7 +195,7 @@
             // 
             this.labelGeneralPrice.AutoSize = true;
             this.labelGeneralPrice.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelGeneralPrice.Location = new System.Drawing.Point(226, 401);
+            this.labelGeneralPrice.Location = new System.Drawing.Point(253, 359);
             this.labelGeneralPrice.Name = "labelGeneralPrice";
             this.labelGeneralPrice.Size = new System.Drawing.Size(16, 22);
             this.labelGeneralPrice.TabIndex = 17;
@@ -213,7 +205,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label9.Location = new System.Drawing.Point(12, 401);
+            this.label9.Location = new System.Drawing.Point(39, 359);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(191, 22);
             this.label9.TabIndex = 16;
@@ -223,7 +215,7 @@
             // 
             this.labelArea.AutoSize = true;
             this.labelArea.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelArea.Location = new System.Drawing.Point(226, 355);
+            this.labelArea.Location = new System.Drawing.Point(253, 313);
             this.labelArea.Name = "labelArea";
             this.labelArea.Size = new System.Drawing.Size(16, 22);
             this.labelArea.TabIndex = 15;
@@ -234,7 +226,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label11.Location = new System.Drawing.Point(125, 355);
+            this.label11.Location = new System.Drawing.Point(152, 313);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(67, 22);
             this.label11.TabIndex = 14;
@@ -244,7 +236,7 @@
             // 
             this.labelAmountOfComp.AutoSize = true;
             this.labelAmountOfComp.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelAmountOfComp.Location = new System.Drawing.Point(362, 484);
+            this.labelAmountOfComp.Location = new System.Drawing.Point(389, 442);
             this.labelAmountOfComp.Name = "labelAmountOfComp";
             this.labelAmountOfComp.Size = new System.Drawing.Size(16, 22);
             this.labelAmountOfComp.TabIndex = 19;
@@ -255,7 +247,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label8.Location = new System.Drawing.Point(124, 484);
+            this.label8.Location = new System.Drawing.Point(151, 442);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(204, 22);
             this.label8.TabIndex = 18;
@@ -265,7 +257,7 @@
             // 
             this.labelDiscretLengthMetal.AutoSize = true;
             this.labelDiscretLengthMetal.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelDiscretLengthMetal.Location = new System.Drawing.Point(362, 593);
+            this.labelDiscretLengthMetal.Location = new System.Drawing.Point(389, 551);
             this.labelDiscretLengthMetal.Name = "labelDiscretLengthMetal";
             this.labelDiscretLengthMetal.Size = new System.Drawing.Size(16, 22);
             this.labelDiscretLengthMetal.TabIndex = 23;
@@ -275,7 +267,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label10.Location = new System.Drawing.Point(74, 593);
+            this.label10.Location = new System.Drawing.Point(101, 551);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(253, 22);
             this.label10.TabIndex = 22;
@@ -285,7 +277,7 @@
             // 
             this.labelMaxZavodLength.AutoSize = true;
             this.labelMaxZavodLength.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelMaxZavodLength.Location = new System.Drawing.Point(362, 530);
+            this.labelMaxZavodLength.Location = new System.Drawing.Point(389, 488);
             this.labelMaxZavodLength.Name = "labelMaxZavodLength";
             this.labelMaxZavodLength.Size = new System.Drawing.Size(16, 22);
             this.labelMaxZavodLength.TabIndex = 21;
@@ -296,7 +288,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label13.Location = new System.Drawing.Point(23, 530);
+            this.label13.Location = new System.Drawing.Point(50, 488);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(310, 44);
             this.label13.TabIndex = 20;
@@ -325,17 +317,51 @@
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(591, 294);
+            this.panel1.Location = new System.Drawing.Point(514, 206);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(690, 419);
+            this.panel1.Size = new System.Drawing.Size(767, 507);
             this.panel1.TabIndex = 26;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // NoteForPrint
+            // buttonNext
+            // 
+            this.buttonNext.Location = new System.Drawing.Point(1232, 746);
+            this.buttonNext.Name = "buttonNext";
+            this.buttonNext.Size = new System.Drawing.Size(97, 37);
+            this.buttonNext.TabIndex = 28;
+            this.buttonNext.Text = "Далі";
+            this.buttonNext.UseVisualStyleBackColor = true;
+            this.buttonNext.Click += new System.EventHandler(this.buttonNext_Click);
+            // 
+            // labelCompOfRoof
+            // 
+            this.labelCompOfRoof.AutoSize = true;
+            this.labelCompOfRoof.Font = new System.Drawing.Font("Times New Roman", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelCompOfRoof.Location = new System.Drawing.Point(1086, 16);
+            this.labelCompOfRoof.Name = "labelCompOfRoof";
+            this.labelCompOfRoof.Size = new System.Drawing.Size(20, 30);
+            this.labelCompOfRoof.TabIndex = 30;
+            this.labelCompOfRoof.Text = "/";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Times New Roman", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label14.Location = new System.Drawing.Point(866, 16);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(199, 30);
+            this.label14.TabIndex = 29;
+            this.label14.Text = "Елемент кровлі";
+            this.label14.Click += new System.EventHandler(this.label14_Click);
+            // 
+            // NoteAboutOneComp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1360, 792);
+            this.Controls.Add(this.labelCompOfRoof);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.buttonNext);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.labelOrder);
             this.Controls.Add(this.label12);
@@ -353,7 +379,6 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.labelData);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.buttonBack);
@@ -363,7 +388,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "NoteForPrint";
+            this.Name = "NoteAboutOneComp";
             this.Text = "Form4";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -381,7 +406,6 @@
         private System.Windows.Forms.Button buttonBack;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button buttonSave;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label labelData;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
@@ -399,5 +423,8 @@
         private System.Windows.Forms.Label labelOrder;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button buttonNext;
+        private System.Windows.Forms.Label labelCompOfRoof;
+        private System.Windows.Forms.Label label14;
     }
 }

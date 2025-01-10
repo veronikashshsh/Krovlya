@@ -1,0 +1,45 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Krovlya
+{
+    public partial class InfoAllMetal : Form
+    {
+        public InfoAllMetal()
+        {
+            InitializeComponent();
+            this.Load += new EventHandler(InfoAllMetal_Load);
+        }
+
+        public void UpdateLabels()
+        {
+            labelData.Text = GlobalData.LabelData;
+            labelCustomer.Text = GlobalData.LabelCustomer;
+            SupplierLabel.Text = GlobalData.LabelManager;
+            //AmountOfMetal.Text = DataCalculations.ResultMetalList.ToString("F0");
+            MaterialsLabel.Text = GlobalData.NameOfMetalTile;
+            //labelAmountOfComp.Text = DataCalculations.AmountOfCompon.ToString();
+            //labelArea.Text = DataCalculations.AreaOfRoof.ToString("F4");
+            labelOrder.Text = GlobalData.LabelOrder;
+            labelFullWidthList.Text = DataCalculations.FullWidthValue.ToString();
+            labelUseWidthList.Text = DataCalculations.UsefulWidthValue.ToString();
+        }
+
+        private void InfoAllMetal_Load(object sender, EventArgs e)
+        {
+            UpdateLabels();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
+}

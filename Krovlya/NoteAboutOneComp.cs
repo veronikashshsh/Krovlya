@@ -16,9 +16,9 @@ using System.Xml.Linq;
 
 namespace Krovlya
 {
-    public partial class NoteForPrint : Form
+    public partial class NoteAboutOneComp : Form
     {
-        public NoteForPrint()
+        public NoteAboutOneComp()
         {
             InitializeComponent();
             this.Load += new EventHandler(NoteForPrint_Load);
@@ -43,12 +43,24 @@ namespace Krovlya
             UpdateLabels();
         }
        
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonNext_Click(object sender, EventArgs e)
         {
-            MetalTile metalTile = new MetalTile();
 
-            metalTile.Show();  
-            this.Hide();  
+            if (selectedElement.CurrentComponent <= selectedElement.TotalComponents)
+            {
+                selectedElement.CurrentComponent++;
+                //int amountOfRoof = selectedElement.CurrentComponent;
+                ChooseTypeOfRoof chooseTypeOfRoof = new ChooseTypeOfRoof();
+                chooseTypeOfRoof.Show();
+                this.Hide();
+            } 
+            else if(selectedElement.CurrentComponent >= selectedElement.TotalComponents)
+            {
+                InfoAllMetal infoAllMetal = new InfoAllMetal();
+                infoAllMetal.Show();
+                this.Hide();
+            }
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -232,6 +244,11 @@ namespace Krovlya
         }
 
         private void labelOrder_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label14_Click(object sender, EventArgs e)
         {
 
         }

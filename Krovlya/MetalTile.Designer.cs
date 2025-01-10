@@ -73,7 +73,7 @@
             this.textBoxWidthRoof = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.buttonMetalData = new System.Windows.Forms.Button();
-            this.label20 = new System.Windows.Forms.Label();
+            this.labelNumOfComp = new System.Windows.Forms.Label();
             this.textBoxLengthList = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -503,16 +503,15 @@
             this.buttonMetalData.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.buttonMetalData.UseVisualStyleBackColor = true;
             // 
-            // label20
+            // labelNumOfComp
             // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label20.Location = new System.Drawing.Point(20, 22);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(54, 32);
-            this.label20.TabIndex = 50;
-            this.label20.Text = "4/4";
-            this.label20.Click += new System.EventHandler(this.label20_Click);
+            this.labelNumOfComp.AutoSize = true;
+            this.labelNumOfComp.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelNumOfComp.Location = new System.Drawing.Point(20, 22);
+            this.labelNumOfComp.Name = "labelNumOfComp";
+            this.labelNumOfComp.Size = new System.Drawing.Size(22, 32);
+            this.labelNumOfComp.TabIndex = 50;
+            this.labelNumOfComp.Text = "/";
             // 
             // textBoxLengthList
             // 
@@ -625,7 +624,7 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.label20);
+            this.Controls.Add(this.labelNumOfComp);
             this.Controls.Add(this.buttonNext);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox1);
@@ -695,7 +694,7 @@
         private System.Windows.Forms.TextBox textBoxWidthRoof;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button buttonMetalData;
-        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label labelNumOfComp;
         private System.Windows.Forms.TextBox textBoxLengthList;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Panel panel1;
