@@ -34,7 +34,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonNextAm = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
             this.pictureBoxExamp = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
@@ -91,16 +90,6 @@
             this.button2.Text = "Назад";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(12, 21);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(54, 32);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "1/4";
-            // 
             // pictureBoxExamp
             // 
             this.pictureBoxExamp.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBoxExamp.BackgroundImage")));
@@ -131,7 +120,6 @@
             this.ClientSize = new System.Drawing.Size(1478, 820);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.pictureBoxExamp);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.buttonNextAm);
             this.Controls.Add(this.panel1);
@@ -152,7 +140,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button buttonNextAm;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBoxExamp;
         private System.Windows.Forms.Label label3;
     }

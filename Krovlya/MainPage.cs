@@ -21,11 +21,10 @@ namespace Krovlya
         }
 
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonMetalTile_Click(object sender, EventArgs e)
         {
 
-            MetalTile form3 = new MetalTile();
-            AmountOfRoof formAmount = new AmountOfRoof();
+            MetalTile formMetalTile = new MetalTile();
 
             // Зберігаємо дані у статичний клас
             GlobalData.LabelData = textBoxData.Text;
@@ -34,7 +33,7 @@ namespace Krovlya
             GlobalData.LabelOrder = textBoxOrder.Text;
 
             // Відкриваємо форму AmountOfRoof
-            formAmount.Show();
+            formMetalTile.Show();
 
             // Ховаємо поточну форму
             this.Hide();

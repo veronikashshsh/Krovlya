@@ -34,6 +34,9 @@ namespace Krovlya
     internal static class selectedElement
     {
         public static string SelectComp { get; set;  }
+        public static int TotalComponents { get; set; }
+        public static int CurrentComponent { get; set; }
+        public static List<string> ComponentData { get; set; } = new List<string>(); //список для зберігання даних про компоненти
         /*public static double DataOfCompA { get; set;}
         public static double DataOfCompB { get; set; }
         public static double DataOfCompC { get; set; }

@@ -21,8 +21,15 @@ namespace Krovlya
 
         private void PictureBoxComp_Paint(object sender, PaintEventArgs e)
         {
+
+            e.Graphics.Clear(pictureBoxComp.BackColor);
             // Визначаємо, який елемент обрано
             string selectedComp = selectedElement.SelectComp;
+
+            if (string.IsNullOrEmpty(selectedComp))
+            {
+                return; // Якщо форма не вибрана, не малюємо нічого
+            }
 
             // Отримуємо Graphics для PictureBox
             Graphics g = e.Graphics;
@@ -67,23 +74,24 @@ namespace Krovlya
                 g.DrawRectangle(pen, rect);
             }
 
-            //write name of side
-
-            using (Font font = new Font("Arial", 10))
-            using (Brush brush = Brushes.Black)
+            /*if (rect.Width > 0 && rect.Height > 0)
             {
-                // Підпис для верхньої сторони
-                g.DrawString("a", font, brush, rect.X + rect.Width / 2 - 10, rect.Y - 20);
+                using (Font font = new Font("Arial", 10))
+                using (Brush brush = Brushes.Black)
+                {
+                    // Підпис для верхньої сторони
+                    g.DrawString("a", font, brush, rect.X + rect.Width / 2 - 10, rect.Y - 20);
 
-                // Підпис для нижньої сторони
-                g.DrawString("b", font, brush, rect.X + rect.Width / 2 - 10, rect.Y + rect.Height + 5);
+                    // Підпис для нижньої сторони
+                    g.DrawString("b", font, brush, rect.X + rect.Width / 2 - 10, rect.Y + rect.Height + 5);
 
-                // Підпис для лівої сторони
-                g.DrawString("c", font, brush, rect.X - 20, rect.Y + rect.Height / 2 - 10);
+                    // Підпис для лівої сторони
+                    g.DrawString("c", font, brush, rect.X - 20, rect.Y + rect.Height / 2 - 10);
 
-                // Підпис для правої сторони
-                g.DrawString("d", font, brush, rect.X + rect.Width + 5, rect.Y + rect.Height / 2 - 10);
-            }
+                    // Підпис для правої сторони
+                    g.DrawString("d", font, brush, rect.X + rect.Width + 5, rect.Y + rect.Height / 2 - 10);
+                }
+            }*/
         }
 
  
@@ -99,13 +107,16 @@ namespace Krovlya
 
         private void buttonNext_Click(object sender, EventArgs e)
         {
-            MetalTile metalTile = new MetalTile();
-            metalTile.Show();
+
+            NoteAboutOneComp noteAboutOneComp = new NoteAboutOneComp();
+            noteAboutOneComp.Show();
             this.Hide();
+
         }
 
         private void buttonBack_Click(object sender, EventArgs e)
         {
+           // int amountOfRoof = selectedElement.TotalComponents;
             ChooseTypeOfRoof typeOfRoof = new ChooseTypeOfRoof();
             typeOfRoof.Show();
             this.Hide();

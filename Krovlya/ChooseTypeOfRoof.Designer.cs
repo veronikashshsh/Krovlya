@@ -35,7 +35,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.buttonNext = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
+            this.labelNumOfRoof = new System.Windows.Forms.Label();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
@@ -100,6 +100,7 @@
             this.pictureBoxRectangle.Size = new System.Drawing.Size(237, 118);
             this.pictureBoxRectangle.TabIndex = 2;
             this.pictureBoxRectangle.TabStop = false;
+            this.pictureBoxRectangle.Click += new System.EventHandler(this.pictureBoxRectangle_Click);
             // 
             // label2
             // 
@@ -128,15 +129,15 @@
             this.button2.Text = "Назад";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // label3
+            // labelNumOfRoof
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(23, 19);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(54, 32);
-            this.label3.TabIndex = 20;
-            this.label3.Text = "2/4";
+            this.labelNumOfRoof.AutoSize = true;
+            this.labelNumOfRoof.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelNumOfRoof.Location = new System.Drawing.Point(23, 19);
+            this.labelNumOfRoof.Name = "labelNumOfRoof";
+            this.labelNumOfRoof.Size = new System.Drawing.Size(22, 32);
+            this.labelNumOfRoof.TabIndex = 20;
+            this.labelNumOfRoof.Text = "/";
             // 
             // pictureBox8
             // 
@@ -255,7 +256,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1385, 804);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.labelNumOfRoof);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.buttonNext);
             this.Controls.Add(this.label2);
@@ -307,7 +308,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button buttonNext;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labelNumOfRoof;
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.PictureBox pictureBox6;

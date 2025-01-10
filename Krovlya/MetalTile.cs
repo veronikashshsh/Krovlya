@@ -43,7 +43,7 @@ namespace Krovlya
 
         private void buttonNext_Click(object sender, EventArgs e)
         {
-            NoteForPrint formPrint = new NoteForPrint();
+            TypeOfCalc typeOfCalc = new TypeOfCalc();
 
             GlobalData.NameOfMetalTile = textBoxGood.Text;
             GlobalData.MaxLengthZavodMetal = textBoxMaxLength.Text;
@@ -57,7 +57,7 @@ namespace Krovlya
             DataCalculations.ResultMetalList = DataCalculations.WidthRoofValue / DataCalculations.UsefulWidthValue;                     
             DataCalculations.AreaOfRoof = DataCalculations.ResultMetalList * DataCalculations.ListLength * DataCalculations.FullWidthValue;
 
-            formPrint.Show();
+            typeOfCalc.Show();
             this.Hide();
         }
 
