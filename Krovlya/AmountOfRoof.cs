@@ -12,11 +12,13 @@ namespace Krovlya
 {
     public partial class AmountOfRoof : Form
     {
+
+        private selectedElement selectedElement;
         public AmountOfRoof()
         {
             InitializeComponent();
             pictureBoxExamp.SizeMode = PictureBoxSizeMode.StretchImage;
-
+            selectedElement = new selectedElement(); // Ініціалізуємо екземпляр
         }
 
         private void buttonNextAm_Click(object sender, EventArgs e)
@@ -29,12 +31,12 @@ namespace Krovlya
 
             if (int.TryParse(textBoxAmount.Text, out int numComponents) && numComponents > 0)
             {
-                selectedElement.TotalComponents = numComponents;
+                numOfComponents.TotalComponents = numComponents;
                 //selectedElement.CurrentComponent = 1; // Починаємо з першого компонента.
 
-                if (selectedElement.CurrentComponent < selectedElement.TotalComponents)
+                if (numOfComponents.CurrentComponent < numOfComponents.TotalComponents)
                 {
-                    selectedElement.CurrentComponent++;
+                    numOfComponents.CurrentComponent++;
                     //int amountOfRoof = selectedElement.TotalComponents;
                     ChooseTypeOfRoof chooseTypeOfRoof = new ChooseTypeOfRoof();
                     chooseTypeOfRoof.Show();

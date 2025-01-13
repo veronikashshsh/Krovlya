@@ -12,6 +12,7 @@ namespace Krovlya
 {
     public partial class ChooseTypeOfRoof : Form
     {
+        private selectedElement selectedElement;
 
         public ChooseTypeOfRoof()
         {
@@ -21,9 +22,7 @@ namespace Krovlya
             pictureBoxTriangle.Click += (s, e) => SelectElement("Triangle");
             pictureBoxRectangle.Click += (s, e) => SelectElement("Rectangle");
             this.Load += new EventHandler(ChooseTypeOfRoof_Load);
-            //selectedElement.CurrentComponent = 1;
-
-            //selectedElement.TotalComponents = amountOfRoof;
+            selectedElement = new selectedElement(); // Ініціалізуємо екземпляр
         }
 
         private void ChooseTypeOfRoof_Load(object sender, EventArgs e)
@@ -44,11 +43,11 @@ namespace Krovlya
                 return;
             }
 
-            if (selectedElement.CurrentComponent < selectedElement.TotalComponents)
+            if (numOfComponents.CurrentComponent <= numOfComponents.TotalComponents)
             {
                 UpdateLabelNumOfRoof();
-                selectedElement.SelectComp = null; // Reset selection for the next component
-                MetalRoofData metalRoofData = new MetalRoofData();
+               // selectedElement.SelectComp = null; // Reset selection for the next component
+                MetalRoofData metalRoofData = new MetalRoofData(selectedElement);
                 this.Hide();
                 metalRoofData.Show();
 
@@ -66,7 +65,7 @@ namespace Krovlya
         private void UpdateLabelNumOfRoof()
         {
             //selectedElement.CurrentComponent++;
-            labelNumOfRoof.Text = $"{selectedElement.CurrentComponent}/{selectedElement.TotalComponents}";
+            labelNumOfRoof.Text = $"{numOfComponents.CurrentComponent}/{numOfComponents.TotalComponents}";
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
