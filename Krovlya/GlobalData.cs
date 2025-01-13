@@ -18,28 +18,17 @@ namespace Krovlya
         public static string DiskretOfMetal { get; set; }
     }
 
-    internal static class DataCalculations
+    public class selectedElement
     {
-        public static int AmountOfCompon { get; set; }
-        public static double UsefulWidthValue { get; set; }
-        public static double FullWidthValue { get; set; }
-        public static double MaxLengthValue { get; set; }
-        public static double WidthRoofValue { get; set; }
-        public static double ResultMetalList { get; set; }
-        public static double AreaOfRoof { get; set; }
-        public static double ListLength { get; set; }
+        public string SelectComp { get; set;  }
+        public List<string> ComponentData { get; set; } = new List<string>(); //список для зберігання даних про компоненти
 
     }
 
-    internal static class selectedElement
+    public static class numOfComponents
     {
-        public static string SelectComp { get; set;  }
         public static int TotalComponents { get; set; }
         public static int CurrentComponent { get; set; }
-        public static List<string> ComponentData { get; set; } = new List<string>(); //список для зберігання даних про компоненти
-        /*public static double DataOfCompA { get; set;}
-        public static double DataOfCompB { get; set; }
-        public static double DataOfCompC { get; set; }
-        public static double DataOfCompD { get; set; }*/
+       // public static int  { get; set; }
     }
 }

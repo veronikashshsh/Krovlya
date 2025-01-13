@@ -143,6 +143,7 @@
     <Compile Include="AmountOfRoof.Designer.cs">
       <DependentUpon>AmountOfRoof.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataCalculations.cs" />
     <Compile Include="InfoAllMetal.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -143,13 +143,13 @@
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(1196, 62);
+            /*this.buttonSave.Location = new System.Drawing.Point(1196, 62);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(133, 37);
             this.buttonSave.TabIndex = 8;
             this.buttonSave.Text = "Зберегти";
             this.buttonSave.UseVisualStyleBackColor = true;
-            this.buttonSave.Click += new System.EventHandler(this.ButtonSave_Click);
+            //this.buttonSave.Click += new System.EventHandler(this.ButtonSave_Click);*/
             // 
             // labelData
             // 
@@ -342,6 +342,7 @@
             this.labelCompOfRoof.Size = new System.Drawing.Size(20, 30);
             this.labelCompOfRoof.TabIndex = 30;
             this.labelCompOfRoof.Text = "/";
+            this.labelCompOfRoof.Click += new System.EventHandler(this.labelCompOfRoof_Click);
             // 
             // label14
             // 
@@ -390,6 +391,7 @@
             this.Controls.Add(this.label1);
             this.Name = "NoteAboutOneComp";
             this.Text = "Form4";
+            this.Load += new System.EventHandler(this.NoteAboutOneComp_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
