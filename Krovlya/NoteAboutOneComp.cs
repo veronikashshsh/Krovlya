@@ -20,22 +20,22 @@ namespace Krovlya
     {
         private selectedElement selectedElement;
 
-        private DataCalculationsForTriangle traingleData;
+        private DataCalculationsForTriangle triangleData;
         public NoteAboutOneComp(DataCalculationsForTriangle triangleData)
         {
             InitializeComponent();
             this.Load += new EventHandler(NoteForPrint_Load);
             selectedElement = new selectedElement();
             panel1.Paint += panel1_Paint;
-            this.traingleData = triangleData;
+            this.triangleData = triangleData;
 
             // Розрахунок площі трикутника за формулою Герона
-            double semiPerimeter = (triangleData.SideAValue + triangleData.SideBValue + triangleData.SideCValue) / 2;
+            /*double semiPerimeter = (triangleData.SideAValue + triangleData.SideBValue + triangleData.SideCValue) / 2;
             double area = Math.Sqrt(semiPerimeter * (semiPerimeter - triangleData.SideAValue) *
                                     (semiPerimeter - triangleData.SideBValue) *
-                                    (semiPerimeter - triangleData.SideCValue));
+                                    (semiPerimeter - triangleData.SideCValue));*/
 
-            traingleData.AreaValue = area;
+            //triangleData.AreaValue = area;
 
             // Створення екземпляра DataCalculationsForTriangle з розрахованою площею
             /*this.traingleData = new DataCalculationsForTriangle
@@ -71,9 +71,9 @@ namespace Krovlya
 
             labelOrder.Text = GlobalData.LabelOrder;
 
-            if (traingleData is DataCalculationsForTriangle triangleData)
+            if (this.triangleData is DataCalculationsForTriangle)
             {
-                labelArea.Text = triangleData.AreaValue.ToString("F3");
+                labelArea.Text = this.triangleData.AreaValue().ToString("F3");
             }
             /* else if (triangle is DataCalculationsForRectangle rectangleData)
              {
@@ -98,7 +98,7 @@ namespace Krovlya
             }
             else if (numOfComponents.CurrentComponent >= numOfComponents.TotalComponents || numOfComponents.CurrentComponent == 1)
             {
-                InfoAllMetal infoAllMetal = new InfoAllMetal();
+                InfoAllMetal infoAllMetal = new InfoAllMetal(triangleData);
                 infoAllMetal.Show();
                 this.Hide();
             }

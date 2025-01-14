@@ -64,7 +64,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label36 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
-            this.label34 = new System.Windows.Forms.Label();
+            this.labelArea1 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
@@ -77,8 +77,9 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(158, 54);
             this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
+            this.button1.Text = "Назад";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -86,7 +87,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(158, 54);
             this.button2.TabIndex = 1;
-            this.button2.Text = "button2";
+            this.button2.Text = "Головна";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // button3
@@ -95,7 +96,7 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(156, 41);
             this.button3.TabIndex = 2;
-            this.button3.Text = "button3";
+            this.button3.Text = "Зберегти";
             this.button3.UseVisualStyleBackColor = true;
             // 
             // label1
@@ -188,6 +189,7 @@
             this.labelData.Size = new System.Drawing.Size(18, 26);
             this.labelData.TabIndex = 11;
             this.labelData.Text = "/";
+            this.labelData.Click += new System.EventHandler(this.labelData_Click);
             // 
             // MaterialsLabel
             // 
@@ -405,7 +407,7 @@
             this.panel1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.panel1.Controls.Add(this.label36);
             this.panel1.Controls.Add(this.label35);
-            this.panel1.Controls.Add(this.label34);
+            this.panel1.Controls.Add(this.labelArea1);
             this.panel1.Controls.Add(this.label33);
             this.panel1.Controls.Add(this.label32);
             this.panel1.Controls.Add(this.label28);
@@ -436,15 +438,16 @@
             this.label35.TabIndex = 37;
             this.label35.Text = "/";
             // 
-            // label34
+            // labelArea1
             // 
-            this.label34.AutoSize = true;
-            this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label34.Location = new System.Drawing.Point(454, 65);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(18, 26);
-            this.label34.TabIndex = 36;
-            this.label34.Text = "/";
+            this.labelArea1.AutoSize = true;
+            this.labelArea1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.labelArea1.Location = new System.Drawing.Point(454, 65);
+            this.labelArea1.Name = "labelArea1";
+            this.labelArea1.Size = new System.Drawing.Size(18, 26);
+            this.labelArea1.TabIndex = 36;
+            this.labelArea1.Text = "/";
+            this.labelArea1.Click += new System.EventHandler(this.label34_Click);
             // 
             // label33
             // 
@@ -560,7 +563,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.Label label35;
-        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Label labelArea1;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label label30;

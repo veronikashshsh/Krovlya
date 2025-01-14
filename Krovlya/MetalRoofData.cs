@@ -214,7 +214,10 @@ namespace Krovlya
            // double heightValueValue = double.TryParse(heightValue.Text, out double tempH) ? tempH : 0;
 
             // Створюємо об'єкт класу DataCalculationsForTriangle з отриманими значеннями
-            DataCalculationsForTriangle triangleData = new DataCalculationsForTriangle(sideAValue, sideBValue, sideCValue);
+            DataCalculationsForTriangle triangleData = new DataCalculationsForTriangle();
+            triangleData.SideAValue = sideAValue;
+            triangleData.SideBValue = sideBValue;
+            triangleData.SideCValue = sideCValue;
 
             // Передаємо об'єкт triangleData до конструктора NoteAboutOneComp
             NoteAboutOneComp noteAboutOneComp = new NoteAboutOneComp(triangleData);

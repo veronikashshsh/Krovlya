@@ -21,20 +21,23 @@ namespace Krovlya
 
     public class DataCalculationsForTriangle
     {
-        public double AreaValue { get; set; }
-        public double HeightValue { get; set; }
+        //public double HeightValue { get; set; }
         public double SideAValue { get; set; }
         public double SideBValue { get; set; }
         public double SideCValue { get; set; }
+        public double AreaValue()
+        {
+            return Math.Sqrt((SideAValue + SideBValue + SideCValue) * (SideAValue + SideBValue - SideCValue) * (SideAValue - SideBValue + SideCValue) * (-SideAValue + SideBValue + SideCValue)) / 4;
+        }
 
-        // Конструктор тепер приймає лише значення, а не TextBox
+        /*// Конструктор тепер приймає лише значення, а не TextBox
         public DataCalculationsForTriangle(double sideAValue, double sideBValue, double sideCValue)
         {
             SideAValue = sideAValue;
             SideBValue = sideBValue;
             SideCValue = sideCValue;
             // Calculate AreaValue and HeightValue based on the sides
-        }
+        }*/
     }
 
 
