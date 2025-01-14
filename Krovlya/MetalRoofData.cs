@@ -31,7 +31,7 @@ namespace Krovlya
             MessageBox.Show($"Ви обрали {selectedElement.SelectComp}");
         }
 
-        private void AddInputFieldsForShape(string shapeType)
+        public void AddInputFieldsForShape(string shapeType)
         {
             // Очищаємо наявні елементи, якщо вони вже були додані
             panelInputs.Controls.Clear();
@@ -47,7 +47,10 @@ namespace Krovlya
 
                 AddLabel("c", 2);
                 AddTextBox("sideC", 2);
-            }
+
+               /* AddLabel("Висота", 3);
+                AddTextBox("HeightValue", 3);*/
+                }
             else if (shapeType == "Rectangle")
             {
                 // Створення Label для прямокутника
@@ -105,15 +108,27 @@ namespace Krovlya
         {
             int triangleWidth = (int)(width * scaleFactor);
             int triangleHeight = (int)(height * scaleFactor);
+
+            // Розрахунок висоти рівностороннього трикутника (від верхньої точки до середини низу)
+            float actualHeight = (float)(Math.Sqrt(3) / 2 * triangleWidth);
+
+            // Створюємо точки трикутника
             Point[] points =
             {
-                new Point(width / 2, (height - triangleHeight) / 2),  // Верхня точка
-                new Point((width - triangleWidth) / 2, (height + triangleHeight) / 2), // Ліва нижня точка
-                new Point((width + triangleWidth) / 2, (height + triangleHeight) / 2)  // Права нижня точка
-            };
+        new Point(width / 2, (height - triangleHeight) / 2),  // Верхня точка
+        new Point((width - triangleWidth) / 2, (height + triangleHeight) / 2), // Ліва нижня точка
+        new Point((width + triangleWidth) / 2, (height + triangleHeight) / 2)  // Права нижня точка
+    };
 
-            // Малюємо трикутник
-            g.FillPolygon(Brushes.Red, points);
+            // Малюємо контури трикутника
+            g.DrawPolygon(Pens.Red, points);
+
+            // Знаходимо середину основи трикутника
+            Point middleBase = new Point((points[1].X + points[2].X) / 2, points[1].Y);
+
+            // Малюємо лінію, яка з'єднує верхню точку з серединою основи (висота)
+            g.DrawLine(Pens.Black, points[0], middleBase);
+        
 
 
 
@@ -184,19 +199,37 @@ namespace Krovlya
 
         }
 
-        private void buttonNext_Click(object sender, EventArgs e)
+        public void buttonNext_Click(object sender, EventArgs e)
         {
-            //DataCalculationsForRectangle.LengthValue = double.TryParse(LengthOfRect.Text, out double data) ? data : 0;
+            // Отримуємо значення з текстових полів
+            TextBox sideA = panelInputs.Controls.Find("sideA", true).FirstOrDefault() as TextBox;
+            TextBox sideB = panelInputs.Controls.Find("sideB", true).FirstOrDefault() as TextBox;
+            TextBox sideC = panelInputs.Controls.Find("sideC", true).FirstOrDefault() as TextBox;
+            //TextBox heightValue = panelInputs.Controls.Find("HeightValue", true).FirstOrDefault() as TextBox;
 
-            NoteAboutOneComp noteAboutOneComp = new NoteAboutOneComp();
+            // Перевіряємо та зберігаємо значення у відповідних змінних
+            double sideAValue = double.TryParse(sideA.Text, out double tempA) ? tempA : 0;
+            double sideBValue = double.TryParse(sideB.Text, out double tempB) ? tempB : 0;
+            double sideCValue = double.TryParse(sideC.Text, out double tempC) ? tempC : 0;
+           // double heightValueValue = double.TryParse(heightValue.Text, out double tempH) ? tempH : 0;
+
+            // Створюємо об'єкт класу DataCalculationsForTriangle з отриманими значеннями
+            DataCalculationsForTriangle triangleData = new DataCalculationsForTriangle();
+            triangleData.SideAValue = sideAValue;
+            triangleData.SideBValue = sideBValue;
+            triangleData.SideCValue = sideCValue;
+
+            // Передаємо об'єкт triangleData до конструктора NoteAboutOneComp
+            NoteAboutOneComp noteAboutOneComp = new NoteAboutOneComp(triangleData);
             noteAboutOneComp.Show();
             this.Hide();
-
         }
+
+
 
         private void buttonBack_Click(object sender, EventArgs e)
         {
-           // int amountOfRoof = selectedElement.TotalComponents;
+            // int amountOfRoof = selectedElement.TotalComponents;
             ChooseTypeOfRoof typeOfRoof = new ChooseTypeOfRoof();
             typeOfRoof.Show();
             this.Hide();
@@ -204,6 +237,11 @@ namespace Krovlya
 
 
         private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MetalRoofData_Load_1(object sender, EventArgs e)
         {
 
         }

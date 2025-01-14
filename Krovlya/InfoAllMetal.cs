@@ -12,10 +12,12 @@ namespace Krovlya
 {
     public partial class InfoAllMetal : Form
     {
-        public InfoAllMetal()
+        private DataCalculationsForTriangle triangleData;
+        public InfoAllMetal(DataCalculationsForTriangle triangleData)
         {
             InitializeComponent();
             this.Load += new EventHandler(InfoAllMetal_Load);
+            this.triangleData = triangleData;
         }
 
         public void UpdateLabels()
@@ -30,6 +32,12 @@ namespace Krovlya
             labelOrder.Text = GlobalData.LabelOrder;
             labelFullWidthList.Text = DataCalculations.FullWidthValue.ToString();
             labelUseWidthList.Text = DataCalculations.UsefulWidthValue.ToString();
+
+            //labelArea1.Text = triangleData.AreaValue.ToString("F3");
+            if (this.triangleData is DataCalculationsForTriangle)
+            {
+                labelArea1.Text = this.triangleData.AreaValue().ToString("F3");
+            }
         }
 
         private void InfoAllMetal_Load(object sender, EventArgs e)
@@ -38,6 +46,26 @@ namespace Krovlya
         }
 
         private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label20_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label34_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelData_Click(object sender, EventArgs e)
         {
 
         }

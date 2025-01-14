@@ -120,6 +120,7 @@
             this.Controls.Add(this.pictureBoxComp);
             this.Name = "MetalRoofData";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.MetalRoofData_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxComp)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

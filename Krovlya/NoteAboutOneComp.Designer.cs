@@ -143,13 +143,10 @@
             // 
             // buttonSave
             // 
-            /*this.buttonSave.Location = new System.Drawing.Point(1196, 62);
+            this.buttonSave.Location = new System.Drawing.Point(0, 0);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(133, 37);
-            this.buttonSave.TabIndex = 8;
-            this.buttonSave.Text = "Зберегти";
-            this.buttonSave.UseVisualStyleBackColor = true;
-            //this.buttonSave.Click += new System.EventHandler(this.ButtonSave_Click);*/
+            this.buttonSave.Size = new System.Drawing.Size(75, 23);
+            this.buttonSave.TabIndex = 31;
             // 
             // labelData
             // 
@@ -160,6 +157,7 @@
             this.labelData.Size = new System.Drawing.Size(19, 27);
             this.labelData.TabIndex = 11;
             this.labelData.Text = "/";
+            this.labelData.Click += new System.EventHandler(this.labelData_Click);
             // 
             // label6
             // 
@@ -190,6 +188,7 @@
             this.AmountOfMetal.Size = new System.Drawing.Size(16, 22);
             this.AmountOfMetal.TabIndex = 13;
             this.AmountOfMetal.Text = "/";
+            this.AmountOfMetal.Click += new System.EventHandler(this.AmountOfMetal_Click);
             // 
             // labelGeneralPrice
             // 

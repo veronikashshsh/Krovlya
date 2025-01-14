@@ -52,14 +52,14 @@ namespace Krovlya
                 metalRoofData.Show();
 
             }
-            else
+           /* else
             {
                 
                 NoteAboutOneComp noteAboutOneComp = new NoteAboutOneComp();
                 noteAboutOneComp.ShowDialog();
                 this.Hide();
 
-            }
+            }*/
         }
 
         private void UpdateLabelNumOfRoof()
