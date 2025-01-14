@@ -19,13 +19,32 @@ namespace Krovlya
     public partial class NoteAboutOneComp : Form
     {
         private selectedElement selectedElement;
-        public NoteAboutOneComp()
+
+        private DataCalculationsForTriangle traingleData;
+        public NoteAboutOneComp(DataCalculationsForTriangle triangleData)
         {
             InitializeComponent();
             this.Load += new EventHandler(NoteForPrint_Load);
             selectedElement = new selectedElement();
             panel1.Paint += panel1_Paint;
+            this.traingleData = triangleData;
 
+            // Розрахунок площі трикутника за формулою Герона
+            double semiPerimeter = (triangleData.SideAValue + triangleData.SideBValue + triangleData.SideCValue) / 2;
+            double area = Math.Sqrt(semiPerimeter * (semiPerimeter - triangleData.SideAValue) *
+                                    (semiPerimeter - triangleData.SideBValue) *
+                                    (semiPerimeter - triangleData.SideCValue));
+
+            traingleData.AreaValue = area;
+
+            // Створення екземпляра DataCalculationsForTriangle з розрахованою площею
+            /*this.traingleData = new DataCalculationsForTriangle
+            {
+                AreaValue = area,
+                SideAValue = sideA,
+                SideBValue = sideB,
+                SideCValue = sideC
+            };*/
         }
 
         private void NoteForPrint_Load(object sender, EventArgs e)
@@ -40,11 +59,30 @@ namespace Krovlya
             labelData.Text = GlobalData.LabelData;
             CustomerLabel.Text = GlobalData.LabelCustomer;
             SupplierLabel.Text = GlobalData.LabelManager;
-            AmountOfMetal.Text = DataCalculations.ResultMetalList.ToString("F0");
+            //AmountOfMetal.Text = GlobalData.Label22.ToString();
+
+
             MaterialsLabel.Text = GlobalData.NameOfMetalTile;
             labelAmountOfComp.Text = numOfComponents.TotalComponents.ToString();
-            labelArea.Text = DataCalculations.AreaOfRoof.ToString("F4");
+            // labelArea.Text = DataCalculations.AreaOfRoof.ToString("F4");
+
+
+            // this.triangleData = triangleData;
+
             labelOrder.Text = GlobalData.LabelOrder;
+
+            if (traingleData is DataCalculationsForTriangle triangleData)
+            {
+                labelArea.Text = triangleData.AreaValue.ToString("F3");
+            }
+            /* else if (triangle is DataCalculationsForRectangle rectangleData)
+             {
+                 labelArea.Text = rectangleData.AreaValue.ToString("F4");
+             }
+             else
+             {
+                 labelArea.Text = "Дані недоступні.";
+             }*/
         }
 
         private void buttonNext_Click(object sender, EventArgs e)
@@ -79,7 +117,7 @@ namespace Krovlya
 
             // Параметри трикутного даху
             float roofWidth = 20.0f;   // Ширина даху
-            float roofHeight = 2.0f;  // Висота даху
+            float roofHeight = 3.0f;  // Висота даху
             float sheetWidth = 2.0f;   // Ширина листа
             float sheetHeight = 2.0f; // Висота листа залежно від розмірів даху
 
@@ -93,7 +131,7 @@ namespace Krovlya
 
             // Генерація позицій листів, починаючи зверху
             int totalSheets = 0;
-            for (int row = 0; row < rows; row++)
+            for (int row = rows - 1; row >= 0; row--)
             {
                 // Висота поточного ряду
                 float currentRowHeight = row * sheetHeight;
@@ -112,7 +150,7 @@ namespace Krovlya
                 {
                     // Розрахунок позицій листів
                     float x = startX + sheet * sheetWidth;
-                    float y = currentRowHeight;
+                    float y = roofHeight - currentRowHeight - sheetHeight; // Відображаємо ряди внизу
 
                     // Додавання прямокутника (листа) у список
                     sheetPositions.Add(new RectangleF(x, y, sheetWidth, sheetHeight));
@@ -146,9 +184,6 @@ namespace Krovlya
             // Відображення загальної кількості листів
             MessageBox.Show($"Загальна кількість листів: {totalSheets}");
         }
-
-
-
 
         /*public class RoofCalculator
         {
@@ -311,6 +346,16 @@ namespace Krovlya
         }
 
         private void NoteAboutOneComp_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AmountOfMetal_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelData_Click(object sender, EventArgs e)
         {
 
         }

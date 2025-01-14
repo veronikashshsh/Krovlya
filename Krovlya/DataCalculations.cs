@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Krovlya
 {
@@ -18,19 +19,29 @@ namespace Krovlya
         public static double ListLength { get; set; }
     }
 
-    internal static class DataCalculationsForTriangle
+    public class DataCalculationsForTriangle
     {
-        public static double AreaValue { get; set; }
-        public static double HeightValue { get; set; }
-        public static double SideAValue { get; set; }
-        public static double SideBValue { get; set; }
-        public static double SideCValue { get; set; }
+        public double AreaValue { get; set; }
+        public double HeightValue { get; set; }
+        public double SideAValue { get; set; }
+        public double SideBValue { get; set; }
+        public double SideCValue { get; set; }
+
+        // Конструктор тепер приймає лише значення, а не TextBox
+        public DataCalculationsForTriangle(double sideAValue, double sideBValue, double sideCValue)
+        {
+            SideAValue = sideAValue;
+            SideBValue = sideBValue;
+            SideCValue = sideCValue;
+            // Calculate AreaValue and HeightValue based on the sides
+        }
     }
 
-    internal static class DataCalculationsForRectangle
+
+    internal class DataCalculationsForRectangle
     {
-        public static double AreaValue { get; set; }
-        public static double LengthValue { get; set; }
-        public static double WidthValue { get; set; }
+        public double AreaValue { get; set; }
+        public double LengthValue { get; set; }
+        public double WidthValue { get; set; }
     }
 }

@@ -62,12 +62,12 @@
             this.label29 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label32 = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
-            this.label30 = new System.Windows.Forms.Label();
-            this.label34 = new System.Windows.Forms.Label();
-            this.label35 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -298,6 +298,7 @@
             this.label20.Size = new System.Drawing.Size(18, 26);
             this.label20.TabIndex = 28;
             this.label20.Text = "/";
+            this.label20.Click += new System.EventHandler(this.label20_Click);
             // 
             // label21
             // 
@@ -415,45 +416,15 @@
             this.panel1.Size = new System.Drawing.Size(1532, 263);
             this.panel1.TabIndex = 34;
             // 
-            // label32
+            // label36
             // 
-            this.label32.AutoSize = true;
-            this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label32.Location = new System.Drawing.Point(248, 0);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(127, 52);
-            this.label32.TabIndex = 34;
-            this.label32.Text = "S корисна.,\r\nкв.м";
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label33.Location = new System.Drawing.Point(420, 0);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(99, 52);
-            this.label33.TabIndex = 35;
-            this.label33.Text = "S повна,\r\nкв.м";
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label30.Location = new System.Drawing.Point(21, 707);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(82, 26);
-            this.label30.TabIndex = 35;
-            this.label30.Text = "Всього";
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label34.Location = new System.Drawing.Point(454, 65);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(18, 26);
-            this.label34.TabIndex = 36;
-            this.label34.Text = "/";
+            this.label36.AutoSize = true;
+            this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.label36.Location = new System.Drawing.Point(151, 65);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(18, 26);
+            this.label36.TabIndex = 38;
+            this.label36.Text = "/";
             // 
             // label35
             // 
@@ -465,15 +436,45 @@
             this.label35.TabIndex = 37;
             this.label35.Text = "/";
             // 
-            // label36
+            // label34
             // 
-            this.label36.AutoSize = true;
-            this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label36.Location = new System.Drawing.Point(151, 65);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(18, 26);
-            this.label36.TabIndex = 38;
-            this.label36.Text = "/";
+            this.label34.AutoSize = true;
+            this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.label34.Location = new System.Drawing.Point(454, 65);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(18, 26);
+            this.label34.TabIndex = 36;
+            this.label34.Text = "/";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.label33.Location = new System.Drawing.Point(420, 0);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(99, 52);
+            this.label33.TabIndex = 35;
+            this.label33.Text = "S повна,\r\nкв.м";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.label32.Location = new System.Drawing.Point(248, 0);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(127, 52);
+            this.label32.TabIndex = 34;
+            this.label32.Text = "S корисна.,\r\nкв.м";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.label30.Location = new System.Drawing.Point(21, 707);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(82, 26);
+            this.label30.TabIndex = 35;
+            this.label30.Text = "Всього";
             // 
             // InfoAllMetal
             // 
