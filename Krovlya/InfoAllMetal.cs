@@ -36,7 +36,7 @@ namespace Krovlya
             //labelArea1.Text = triangleData.AreaValue.ToString("F3");
             if (this.triangleData is DataCalculationsForTriangle)
             {
-                labelArea1.Text = this.triangleData.AreaValue().ToString("F3");
+                labelArea1.Text = this.triangleData.AreaCalc().ToString("F3");
             }
         }
 

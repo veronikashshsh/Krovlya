@@ -34,7 +34,6 @@
             this.MaterialsLabel = new System.Windows.Forms.Label();
             this.CustomerLabel = new System.Windows.Forms.Label();
             this.SupplierLabel = new System.Windows.Forms.Label();
-            this.buttonBack = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
             this.labelData = new System.Windows.Forms.Label();
@@ -57,6 +56,7 @@
             this.buttonNext = new System.Windows.Forms.Button();
             this.labelCompOfRoof = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.buttonBackToM = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -120,16 +120,6 @@
             this.SupplierLabel.TabIndex = 3;
             this.SupplierLabel.Text = "/";
             this.SupplierLabel.Click += new System.EventHandler(this.SupplierLabel_Click);
-            // 
-            // buttonBack
-            // 
-            this.buttonBack.Location = new System.Drawing.Point(1126, 746);
-            this.buttonBack.Name = "buttonBack";
-            this.buttonBack.Size = new System.Drawing.Size(100, 37);
-            this.buttonBack.TabIndex = 6;
-            this.buttonBack.Text = "Назад";
-            this.buttonBack.UseVisualStyleBackColor = true;
-            this.buttonBack.Click += new System.EventHandler(this.buttonNext_Click);
             // 
             // button2
             // 
@@ -354,11 +344,22 @@
             this.label14.Text = "Елемент кровлі";
             this.label14.Click += new System.EventHandler(this.label14_Click);
             // 
+            // buttonBackToM
+            // 
+            this.buttonBackToM.Location = new System.Drawing.Point(1196, 65);
+            this.buttonBackToM.Name = "buttonBackToM";
+            this.buttonBackToM.Size = new System.Drawing.Size(133, 32);
+            this.buttonBackToM.TabIndex = 32;
+            this.buttonBackToM.Text = "Назад";
+            this.buttonBackToM.UseVisualStyleBackColor = true;
+            this.buttonBackToM.Click += new System.EventHandler(this.buttonBackToM_Click);
+            // 
             // NoteAboutOneComp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1360, 792);
+            this.Controls.Add(this.buttonBackToM);
             this.Controls.Add(this.labelCompOfRoof);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.buttonNext);
@@ -381,7 +382,6 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.buttonBack);
             this.Controls.Add(this.MaterialsLabel);
             this.Controls.Add(this.CustomerLabel);
             this.Controls.Add(this.SupplierLabel);
@@ -404,7 +404,6 @@
         private System.Windows.Forms.Label MaterialsLabel;
         private System.Windows.Forms.Label CustomerLabel;
         private System.Windows.Forms.Label SupplierLabel;
-        private System.Windows.Forms.Button buttonBack;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Label labelData;
@@ -427,5 +426,6 @@
         private System.Windows.Forms.Button buttonNext;
         private System.Windows.Forms.Label labelCompOfRoof;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Button buttonBackToM;
     }
 }

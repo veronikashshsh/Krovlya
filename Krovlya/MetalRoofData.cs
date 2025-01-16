@@ -12,9 +12,14 @@ using System.Windows.Forms;
 
 namespace Krovlya
 {
+    
+    //public Stack<Form> formStack = new Stack<Form>();
     public partial class MetalRoofData : Form
     {
+        public static Stack<Form> FormStack { get; private set; } = new Stack<Form>();
         private selectedElement selectedElement;
+        private DataCalculationsForTriangle triangleData; //глобальна змінна для зберігання даних про трикутник
+         //стек для збереження станів форм
 
         public MetalRoofData(selectedElement selectedElement)
         {
@@ -23,6 +28,7 @@ namespace Krovlya
             pictureBoxComp.Paint += PictureBoxComp_Paint;
             this.selectedElement = selectedElement; // Ініціалізуємо екземпляр
             AddInputFieldsForShape(selectedElement.SelectComp);
+            autoCalc(selectedElement);
         }
 
         private void MetalRoofData_Load(object sender, EventArgs e)
@@ -48,8 +54,11 @@ namespace Krovlya
                 AddLabel("c", 2);
                 AddTextBox("sideC", 2);
 
-               /* AddLabel("Висота", 3);
-                AddTextBox("HeightValue", 3);*/
+                AddLabel("Висота", 3);
+                AddTextBox("HeightValue", 3);
+
+                AddLabel("Площа", 4);
+                AddTextBox("AreaValue", 4);
                 }
             else if (shapeType == "Rectangle")
             {
@@ -81,6 +90,13 @@ namespace Krovlya
                 Location = new Point(100, 30 + index * 40), // Місце для TextBox
                 Width = 100
             };
+
+            textBox.TextChanged += (sender, e) =>
+            {
+                autoCalc(selectedElement);
+            };
+
+
             panelInputs.Controls.Add(textBox);
         }
 
@@ -120,6 +136,16 @@ namespace Krovlya
         new Point((width + triangleWidth) / 2, (height + triangleHeight) / 2)  // Права нижня точка
     };
 
+
+            // Перевіряємо, чи всі точки знаходяться в межах PictureBox
+            foreach (var point in points)
+            {
+                if (!IsValidCoordinate(point, width, height))
+                {
+                    MessageBox.Show("Точка знаходиться поза межами PictureBox.", "Помилка");
+                    return;
+                }
+            }
             // Малюємо контури трикутника
             g.DrawPolygon(Pens.Red, points);
 
@@ -135,7 +161,7 @@ namespace Krovlya
             // Малюємо підписи для сторін
     if (triangleWidth > 0 && triangleHeight > 0)
             {
-                using (Font font = new Font("Arial", 10))
+                using (Font font = new Font(FontFamily.GenericSansSerif, 10))
                 using (Brush brush = Brushes.Black)
                 {
                     // Підпис для верхньої сторони
@@ -151,6 +177,11 @@ namespace Krovlya
                     g.DrawString("c", font, brush, middleRight.X - 10, middleRight.Y - 30);
                 }
             }
+        }
+
+        private bool IsValidCoordinate(Point point, int width, int height)
+        {
+            return point.X >= 0 && point.X <= width && point.Y >= 0 && point.Y <= height;
         }
 
         private void DrawRectangle(Graphics g, int width, int height, float scaleFactor)
@@ -188,41 +219,115 @@ namespace Krovlya
 
         }
 
- 
-        private void label4_Click(object sender, EventArgs e)
+
+
+        public void autoCalc(selectedElement selectedElement)
         {
+            string selectedComp = selectedElement?.SelectComp;
+            if(selectedComp == "Triangle") {
+                TextBox sideA = panelInputs.Controls.Find("sideA", true).FirstOrDefault() as TextBox;
+                TextBox sideB = panelInputs.Controls.Find("sideB", true).FirstOrDefault() as TextBox;
+                TextBox sideC = panelInputs.Controls.Find("sideC", true).FirstOrDefault() as TextBox;
+                TextBox heightBox = panelInputs.Controls.Find("HeightValue", true).FirstOrDefault() as TextBox;
+                TextBox areaBox = panelInputs.Controls.Find("AreaValue", true).FirstOrDefault() as TextBox;
 
+                if (sideA != null && sideB != null && sideC != null && heightBox != null)
+                {
+                    // Зчитуємо значення сторін
+                    double sideAValue = double.TryParse(sideA.Text, out double tempA) ? tempA : 0;
+                    double sideBValue = double.TryParse(sideB.Text, out double tempB) ? tempB : 0;
+                    double sideCValue = double.TryParse(sideC.Text, out double tempC) ? tempC : 0;
+                    double heightValue = double.TryParse(heightBox.Text, out double tempH) ? tempH : 0;
+
+                    // Перевірка: чи всі сторони більше нуля
+                    if (sideAValue > 0 && sideBValue > 0 && sideCValue > 0)
+                    {
+                        // Створюємо об'єкт для розрахунків
+                        triangleData = new DataCalculationsForTriangle
+                        {
+                            SideAValue = sideAValue,
+                            SideBValue = sideBValue,
+                            SideCValue = sideCValue,
+                            HeightValue = heightValue
+                        };
+
+                        if (sideAValue + sideBValue <= sideCValue ||
+                            sideAValue + sideCValue <= sideBValue ||
+                            sideBValue + sideCValue <= sideAValue)
+                        {
+                            MessageBox.Show("Трикутник із такими сторонами не може існувати.", "Помилка");
+                            return;
+                        }
+                        //triangleData.CalculateHeight();
+                       
+                         double semiPerimeter = (sideAValue + sideBValue + sideCValue) / 2;
+                        double area = Math.Sqrt(semiPerimeter *
+                                       (semiPerimeter - sideAValue) *
+                                       (semiPerimeter - sideBValue) *
+                                       (semiPerimeter - sideCValue));
+      
+                         heightValue = (2 * area) / sideBValue;
+
+        
+                        heightBox.Text = heightValue.ToString("F2");
+          
+                        triangleData.AreaCalc();
+                        areaBox.Text = triangleData.AreaValue.ToString("F2");
+
+                        
+
+                    } else if (heightValue > 0 && sideBValue > 0)
+                    {
+                        // Створюємо об'єкт для розрахунків
+                        triangleData = new DataCalculationsForTriangle
+                        {
+                            SideAValue = sideAValue,
+                            SideBValue = sideBValue,
+                            SideCValue = sideCValue,
+                            HeightValue = heightValue
+                        };
+
+                        triangleData.AreaCalc();
+                        areaBox.Text = triangleData.AreaValue.ToString("F2");
+
+                        return;
+                    }
+                }
+            }
         }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+       // public static Stack<Form> FormStack1 { get; private set; } = new Stack<Form>();
 
         public void buttonNext_Click(object sender, EventArgs e)
-        {
+        { 
             // Отримуємо значення з текстових полів
             TextBox sideA = panelInputs.Controls.Find("sideA", true).FirstOrDefault() as TextBox;
             TextBox sideB = panelInputs.Controls.Find("sideB", true).FirstOrDefault() as TextBox;
             TextBox sideC = panelInputs.Controls.Find("sideC", true).FirstOrDefault() as TextBox;
+            TextBox heightBox = panelInputs.Controls.Find("HeightValue", true).FirstOrDefault() as TextBox;
+
             //TextBox heightValue = panelInputs.Controls.Find("HeightValue", true).FirstOrDefault() as TextBox;
 
             // Перевіряємо та зберігаємо значення у відповідних змінних
             double sideAValue = double.TryParse(sideA.Text, out double tempA) ? tempA : 0;
             double sideBValue = double.TryParse(sideB.Text, out double tempB) ? tempB : 0;
             double sideCValue = double.TryParse(sideC.Text, out double tempC) ? tempC : 0;
-           // double heightValueValue = double.TryParse(heightValue.Text, out double tempH) ? tempH : 0;
+            double heightValue = double.TryParse(heightBox.Text, out double tempH) ? tempH : 0;
 
             // Створюємо об'єкт класу DataCalculationsForTriangle з отриманими значеннями
             DataCalculationsForTriangle triangleData = new DataCalculationsForTriangle();
             triangleData.SideAValue = sideAValue;
             triangleData.SideBValue = sideBValue;
             triangleData.SideCValue = sideCValue;
+            triangleData.HeightValue = heightValue;
 
+
+            SharedData.TriangleData = triangleData;
             // Передаємо об'єкт triangleData до конструктора NoteAboutOneComp
             NoteAboutOneComp noteAboutOneComp = new NoteAboutOneComp(triangleData);
-            noteAboutOneComp.Show();
+            
+            FormStack.Push(this);
             this.Hide();
+            noteAboutOneComp.Show();
         }
 
 
@@ -236,12 +341,27 @@ namespace Krovlya
         }
 
 
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
         }
 
         private void MetalRoofData_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
         {
 
         }

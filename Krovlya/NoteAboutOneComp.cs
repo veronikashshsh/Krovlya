@@ -13,6 +13,8 @@ using iText.Layout.Element;
 using iText.IO.Image;
 using System.IO;
 using System.Xml.Linq;
+using System.Drawing.Text;
+using System.Globalization;
 
 namespace Krovlya
 {
@@ -54,6 +56,7 @@ namespace Krovlya
 
         public void UpdateLabels()
         {
+
             labelMaxZavodLength.Text = GlobalData.MaxLengthZavodMetal;
             labelDiscretLengthMetal.Text = GlobalData.DiskretOfMetal;
             labelData.Text = GlobalData.LabelData;
@@ -73,7 +76,21 @@ namespace Krovlya
 
             if (this.triangleData is DataCalculationsForTriangle)
             {
-                labelArea.Text = this.triangleData.AreaValue().ToString("F3");
+                Console.WriteLine($"SideBValue: {this.triangleData.SideBValue}, ResultMetalList: {DataCalculations.UsefulWidthValue}");
+
+                labelArea.Text = this.triangleData.AreaCalc().ToString("F3");
+                //AmountOfMetal.Text = (this.triangleData.SideBValue / DataCalculations.ResultMetalList).ToString();
+                double result = this.triangleData.SideBValue / DataCalculations.UsefulWidthValue;
+                if (double.IsInfinity(result) || double.IsNaN(result))
+                {
+                    AmountOfMetal.Text = "Некоректний результат";
+                }
+                else
+                {
+                    AmountOfMetal.Text = result.ToString("F3");
+                }
+
+
             }
             /* else if (triangle is DataCalculationsForRectangle rectangleData)
              {
@@ -88,6 +105,7 @@ namespace Krovlya
         private void buttonNext_Click(object sender, EventArgs e)
         {
 
+            SharedData.TriangleData = triangleData;
             if (numOfComponents.CurrentComponent < numOfComponents.TotalComponents)
             {
                 numOfComponents.CurrentComponent++;
@@ -110,37 +128,68 @@ namespace Krovlya
             this.Close();
         }
 
+        //Stack<Form> formStack = new Stack<Form>();
+        private void buttonBackToM_Click(object sender, EventArgs e)
+        {
+            MetalRoofData formMetal = (MetalRoofData)MetalRoofData.FormStack.Pop();
+            
+            this.Hide();
+            formMetal.Show();
+        }
+
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
+            if (triangleData == null)
+            {
+                MessageBox.Show("Дані трикутника не завантажені.");
+                return;
+            }
             Graphics g = e.Graphics;
+            string selectedComp = selectedElement?.SelectComp;
+            double roofWidth = triangleData.SideBValue; // Initialize roofWidth
+            //double roofHeight = triangleData.HeightValue;
+            double roofHeight = triangleData.HeightValue;
 
-            // Параметри трикутного даху
-            float roofWidth = 20.0f;   // Ширина даху
-            float roofHeight = 3.0f;  // Висота даху
-            float sheetWidth = 2.0f;   // Ширина листа
-            float sheetHeight = 2.0f; // Висота листа залежно від розмірів даху
+
+            // double roofHeight = triangleData.HeightValue; // Initialize roofHeight
+            //double roofHeight = double.TryParse(triangleData.HeightValue out double int parsedHeight) ? parsedHeight : 0;
+            // double roofHeight = 2;
+
+
+            Console.WriteLine($"SideBValue: {triangleData.SideBValue}, HeightValue: {triangleData.HeightValue}");
+
+
+            if (roofWidth <= 0 || roofHeight <= 0)
+            {
+                MessageBox.Show("Некоректні розміри даху. Перевірте введені дані.");
+                return;
+            }
+
+            // Висота даху
+            double sheetWidth = DataCalculations.UsefulWidthValue;   // Ширина листа
+            double sheetHeight = DataCalculations.ListLength; // Висота листа залежно від розмірів даху
 
             // Масштабування для візуалізації
-            float scaleX = panel1.Width / roofWidth;
-            float scaleY = panel1.Height / roofHeight;
+            double scaleX = panel1.Width / roofWidth;
+            double scaleY = panel1.Height / roofHeight;
 
             // Список позицій листів
             List<RectangleF> sheetPositions = new List<RectangleF>();
             int rows = (int)Math.Ceiling(roofHeight / sheetHeight); // Кількість рядів
 
-            // Генерація позицій листів, починаючи зверху
+            // Генерація позицій листів, починаючи знизу
             int totalSheets = 0;
             for (int row = rows - 1; row >= 0; row--)
             {
                 // Висота поточного ряду
-                float currentRowHeight = row * sheetHeight;
+                double currentRowHeight = row * sheetHeight;
 
                 // Ширина ряду пропорційна висоті
-                float currentRowWidth = ((roofHeight - currentRowHeight) / roofHeight) * roofWidth;
+                double currentRowWidth = ((roofHeight - currentRowHeight) / roofHeight) * roofWidth;
 
                 // Початкова X-координата для центрування ряду
-                float startX = (roofWidth - currentRowWidth) / 2.0f;
+                double startX = (roofWidth - currentRowWidth) / 2.0;
 
                 // Кількість листів у ряді
                 int sheetsInRow = (int)Math.Ceiling(currentRowWidth / sheetWidth);
@@ -149,40 +198,42 @@ namespace Krovlya
                 for (int sheet = 0; sheet < sheetsInRow; sheet++)
                 {
                     // Розрахунок позицій листів
-                    float x = startX + sheet * sheetWidth;
-                    float y = roofHeight - currentRowHeight - sheetHeight; // Відображаємо ряди внизу
+                    double x = startX + sheet * sheetWidth;
+                    double y = roofHeight - currentRowHeight - sheetHeight; // Відображаємо ряди внизу
 
                     // Додавання прямокутника (листа) у список
-                    sheetPositions.Add(new RectangleF(x, y, sheetWidth, sheetHeight));
+                    sheetPositions.Add(new RectangleF((float)x, (float)y, (float)sheetWidth, (float)sheetHeight));
+                }
+                Console.WriteLine($"Row: {row}, Row Width: {currentRowWidth}, Sheets in Row: {sheetsInRow}");
+                //Console.WriteLine($"SelectedComp: {selectedComp}");
+                Console.WriteLine($"Roof Width: {roofWidth}, Roof Height: {roofHeight}");
+            }
+
+            using (Brush brush = new SolidBrush(Color.LightBlue))
+            using (Pen pen = new Pen(Color.Black, 1))
+            {
+                foreach (var rect in sheetPositions)
+                {
+
+                    RectangleF scaledRect = new RectangleF(
+                        (float)(rect.X * scaleX),
+                        (float)(rect.Y * scaleY),
+                        (float)(rect.Width * scaleX),
+                        (float)(rect.Height * scaleY));
+                    g.FillRectangle(brush, scaledRect);
+                    g.DrawRectangle(pen, scaledRect.X, scaledRect.Y, scaledRect.Width, scaledRect.Height);
                 }
             }
 
-            // Малювання листів
-            Brush brush = new SolidBrush(Color.LightBlue); // Колір для заповнення
-            Pen pen = new Pen(Color.Black, 1); // Контур
-
-            foreach (var rect in sheetPositions)
+            using (Pen trianglePen = new Pen(Color.Red, 2))
             {
-                // Масштабування позицій і розмірів для панелі
-                RectangleF scaledRect = new RectangleF(
-                    rect.X * scaleX,
-                    rect.Y * scaleY,
-                    rect.Width * scaleX,
-                    rect.Height * scaleY);
-
-                // Малюємо лист
-                g.FillRectangle(brush, scaledRect);
-                g.DrawRectangle(pen, scaledRect.X, scaledRect.Y, scaledRect.Width, scaledRect.Height);
+                g.DrawLine(trianglePen, 0, panel1.Height, panel1.Width / 2, 0); // Ліва сторона
+                g.DrawLine(trianglePen, panel1.Width, panel1.Height, panel1.Width / 2, 0); // Права сторона
+                g.DrawLine(trianglePen, 0, panel1.Height, panel1.Width, panel1.Height); // Нижня сторона
             }
 
-            // Малювання контуру трикутника (даху)
-            Pen trianglePen = new Pen(Color.Red, 2);
-            g.DrawLine(trianglePen, 0, panel1.Height, panel1.Width / 2, 0); // Ліва сторона
-            g.DrawLine(trianglePen, panel1.Width, panel1.Height, panel1.Width / 2, 0); // Права сторона
-            g.DrawLine(trianglePen, 0, panel1.Height, panel1.Width, panel1.Height); // Нижня сторона
-
-            // Відображення загальної кількості листів
-            MessageBox.Show($"Загальна кількість листів: {totalSheets}");
+            // Виведення загальної кількості листів у консоль
+            Console.WriteLine($"Загальна кількість листів: {totalSheets}");
         }
 
         /*public class RoofCalculator

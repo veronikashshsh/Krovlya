@@ -67,6 +67,7 @@
             this.label3.Size = new System.Drawing.Size(124, 29);
             this.label3.TabIndex = 3;
             this.label3.Text = "Розмір, м";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // labelNumOfComp
             // 

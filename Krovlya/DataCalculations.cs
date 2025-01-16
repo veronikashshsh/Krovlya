@@ -21,22 +21,46 @@ namespace Krovlya
 
     public class DataCalculationsForTriangle
     {
-        //public double HeightValue { get; set; }
+        public double HeightValue { get; set; }
         public double SideAValue { get; set; }
-        public double SideBValue { get; set; }
+        public double SideBValue { get; set; } //роб ширина
         public double SideCValue { get; set; }
-        public double AreaValue()
+        public double AreaValue { get; set; }
+        public double AreaCalc()
         {
-            return Math.Sqrt((SideAValue + SideBValue + SideCValue) * (SideAValue + SideBValue - SideCValue) * (SideAValue - SideBValue + SideCValue) * (-SideAValue + SideBValue + SideCValue)) / 4;
+            if (HeightValue > 0 && SideBValue > 0) // Якщо є висота
+            {
+                AreaValue = (SideBValue * HeightValue) / 2; // Формула площі через висоту
+            }
+            else if (SideAValue > 0 && SideBValue > 0 && SideCValue > 0) // Якщо висота не задана, але є всі сторони
+            {
+                // Формула Герона
+                double semiPerimeter = (SideAValue + SideBValue + SideCValue) / 2;
+                AreaValue = Math.Sqrt(semiPerimeter *
+                                      (semiPerimeter - SideAValue) *
+                                      (semiPerimeter - SideBValue) *
+                                      (semiPerimeter - SideCValue));
+            }
+            
+            return AreaValue;
         }
-
-        /*// Конструктор тепер приймає лише значення, а не TextBox
-        public DataCalculationsForTriangle(double sideAValue, double sideBValue, double sideCValue)
+      
+        /*public double CalculateHeight()
         {
-            SideAValue = sideAValue;
-            SideBValue = sideBValue;
-            SideCValue = sideCValue;
-            // Calculate AreaValue and HeightValue based on the sides
+            double semiPerimeter = (SideAValue + SideBValue + SideCValue) / 2;
+            double area = Math.Sqrt(semiPerimeter *
+                                    (semiPerimeter - SideAValue) *
+                                    (semiPerimeter - SideBValue) *
+                                    (semiPerimeter - SideCValue));
+
+            if (SideBValue <= 0)
+            {
+                throw new InvalidOperationException("Сторона B має бути більшою за нуль.");
+            }
+            // Розрахунок висоти
+            HeightValue = (2 * area) / SideBValue;
+
+            return HeightValue;
         }*/
     }
 

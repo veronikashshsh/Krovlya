@@ -16,12 +16,15 @@ namespace Krovlya
         public static string NameOfMetalTile { get; set; }
         public static string MaxLengthZavodMetal { get; set; }
         public static string DiskretOfMetal { get; set; }
+
+
     }
 
     public class selectedElement
     {
         public string SelectComp { get; set;  }
         public List<string> ComponentData { get; set; } = new List<string>(); //список для зберігання даних про компоненти
+
 
     }
 
@@ -31,4 +34,13 @@ namespace Krovlya
         public static int CurrentComponent { get; set; }
        // public static int  { get; set; }
     }
+
+
+    public static class SharedData
+    {
+        public static DataCalculationsForTriangle TriangleData { get; set; }
+    }
+
 }
+
+
